@@ -1,0 +1,98 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+alignment bottom_right
+background no
+border_width 1
+cpu_avg_samples 2
+default_color green
+default_outline_color white
+default_shade_color black
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades yes
+use_xft yes
+xftfont monospace:size=12
+gap_x 24
+gap_y 36
+minimum_size 5 5
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_class Conky
+own_window_type override
+#own_window_argb_visual yes
+own_window_transparent yes
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer left
+show_graph_scale no
+show_graph_range no
+double_buffer yes
+
+TEXT
+${font kiloji:size=12}$nodename - $sysname $kernel
+${alignr}on $machine
+${alignr}${time %x (%A) %R}
+#${color yellow}${alignr}Desktop Number = ${color red}${desktop}${color}${font}
+${font}${alignr}Uptime: ${uptime}
+Battery: ${alignr}${battery_percent}% ${battery_bar 8,150}
+$hr
+Networking:
+ wlan0:   Up: ${upspeed wlan0}  /  Down:  ${downspeed wlan0}
+${color yellow}  SSID: ${alignr}${wireless_essid wlan0}
+  Link Quality: ${alignr}${wireless_link_qual_perc wlan0} %${color}
+ eth0:    Up: ${upspeed eth0}  /  Down:  ${downspeed eth0}
+ eth1:    Up: ${upspeed eth1}  /  Down:  ${downspeed eth1}
+$hr
+System:
+ CPU Frequency:  ${alignr}${freq}MHz
+ CPU Usage: ${alignr}${cpu}%
+ ${alignr}${cpugraph 12,180 ffff00 ff0000}
+ RAM Usage: ${alignr}${mem} / ${memmax} - ${memperc}%
+ ${alignr}${memgraph 12,180 ffff00 ff0000}
+ Swap Usage: ${alignr}${swap} / ${swapmax} - ${swapperc}%
+#${alignr}${swapbar 8,150}
+$hr
+File System:
+ Read:  ${diskio_read} / Write:  ${diskio_write}
+ / Usage: ${alignr}${fs_used /} / ${fs_size /} - ${fs_used_perc}%
+${alignr}${fs_bar 12,250 /}
+$hr
+Processes: ${processes}  Running: ${running_processes}
+${alignr}Load Avarage: ${loadavg}
+Name              PID    CPU%   MEM%
+${color red} ${top name 1}  ${top pid 1}  ${top cpu 1}  ${top mem 1}${color}
+${color yellow} ${top name 2}  ${top pid 2}  ${top cpu 2}  ${top mem 2}
+ ${top name 3}  ${top pid 3}  ${top cpu 3}  ${top mem 3}
+ ${top name 4}  ${top pid 4}  ${top cpu 4}  ${top mem 4}
+ ${top name 5}  ${top pid 5}  ${top cpu 5}  ${top mem 5}
+${color}

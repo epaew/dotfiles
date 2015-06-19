@@ -1,0 +1,15 @@
+[core]
+	autoCRLF = input
+[fetch]
+	prune = true
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+	keepBackup = false
+[user]
+	name = epaew
+	email = epaew.333@gmail.com
