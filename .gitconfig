@@ -10,6 +10,5 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
-[user]
-	name = epaew
-	email = epaew.333@gmail.com
+[init]
+	templatedir = ~/dotfiles/git_template

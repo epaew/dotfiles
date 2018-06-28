@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# vim: set ft=ruby:
+
+# begin common statement
+def expected_value?(key, expected)
+  current = `git config #{key}`.chomp
+  `git config #{key} #{expected}` if current != expected
+
+  current == expected
+end
+
+origin = `git config remote.origin.url`.chomp
+case origin
+when %r(github\.com[:/])
+  name = expected_value?('user.name', 'epaew')
+  email = expected_value?('user.email', 'epaew.333@gmail.com')
+  unless name || email
+    puts 'user updated. try again.'
+    exit 1
+  end
+end
+# end common statement
+
+local_hook =
+  File.expand_path("../../local-hooks/#{File.basename(__FILE__)}", __FILE__)
+
+if File.executable?(local_hook)
+  `#{local_hook}`
+end

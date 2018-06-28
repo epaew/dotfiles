@@ -20,7 +20,9 @@ $RECYCLE.BIN/
 ## Others
 #############
 
+git_template/local-hooks/*
 zsh/*.zwc
 zsh/.zcompdump
 zsh/.zcompcache
 zsh/.zprofile
+!.keep

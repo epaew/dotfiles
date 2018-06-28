@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# vim: set ft=ruby:
+
+# begin common statement
+# end common statement
+
+local_hook =
+  File.expand_path("../../local-hooks/#{File.basename(__FILE__)}", __FILE__)
+
+if File.executable?(local_hook)
+  `#{local_hook}`
+end
