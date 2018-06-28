@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+# vin:set ft=zsh:
+# compile zshenv if file was changed
+
+if [[ $# -ne 1 ]]; then return 1; fi
+
+zfile=$1
+[[ ! -a $zfile.zwc || $zfile -nt $zfile.zwc ]]
+for f in $(ls -a $ZDOTDIR/functions/*); do [[ $? || $f -nt $zfile.zwc ]]; done
+if [[ $? ]]; then builtin zcompile $zfile; fi
