@@ -163,5 +163,6 @@ setopt print_eight_bit
 setopt auto_resume
 setopt rm_star_wait
 
+autoload -Uz replace-githooks
 autoload -Uz zmv
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh # includes override key-binds

@@ -1,0 +1,9 @@
+# vim: set ft=zsh:
+if [[ -d .git/hooks ]]; then
+    mv .git/hooks .git/local-hooks
+    ln -s ~/dotfiles/git_template/hooks .git/hooks
+    echo "moved .git/hooks to .git/local-hooks"
+    echo "and replaced .git/hooks with symlinks."
+else
+    echo "replace-githooks() should call in git root directory."
+fi
