@@ -1,0 +1,32 @@
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+depends = 'context_filetype.vim'
+hook_source = '''
+set completeopt+=noinsert
+let g:python_host_prog = ''
+let g:python3_host_prog = system(
+      \  '(type pyenv &>/dev/null'
+      \ .'  && echo -n "${PYENV_ROOT}/versions/$(cat ${PYENV_ROOT}/version)/bin/python")'
+      \ .'|| (which python3 &>/dev/null'
+      \ .'  && echo -n $(which python3))'
+      \ .'|| echo -n $(which python)'
+      \ )
+'''
+hook_post_source = 'call deoplete#enable()'
+
+#[[plugins]]
+#repo  = 'Shougo/denite.nvim'
+#on_if = 'echo has("python3")'
+
+[[plugins]]
+repo   = 'bronson/vim-trailing-whitespace'
+on_cmd = 'FixWhitespace'
+on_i   = 1
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_i = 1

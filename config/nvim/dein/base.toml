@@ -1,0 +1,83 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo  = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+# git の差分表示
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set updatetime=100
+let g:gitgutter_highlight_lines = 1
+'''
+
+[[plugins]]
+repo  = 'junegunn/fzf'
+build = './install --all'
+rtp   = ''
+
+[[plugins]]
+repo    = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+[[plugins]]
+# color scheme
+repo = 'itchyny/landscape.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+depends = 'landscape.vim'
+hook_add = '''
+set laststatus=2
+set showtabline=2
+let g:lightline = {
+      \   'colorscheme' : 'landscape',
+      \   'component_function' : {
+      \     'cwd' : 'LightlineRelativecwd',
+      \   },
+      \ }
+let g:lightline.tabline = {
+      \   'left' : [['tabs']],
+      \   'right' : [['cwd']],
+      \ }
+let g:lightline.tab_component_function = {
+      \   'filename' : 'LightlineTabname',
+      \ }
+
+function! LightlineRelativecwd()
+  return fnamemodify(getcwd(), ':~:.')
+endfunction
+
+function! LightlineTabname(n) abort
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let _ = expand('#'.buflist[winnr - 1])
+  return _ !=# '' ? _ : '[No Name]'
+endfunction
+'''
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+# ANSI color の表示
+repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]]
+repo    = 'Xuyuanp/nerdtree-git-plugin'
+depends = 'nerdtree'

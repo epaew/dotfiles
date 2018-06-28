@@ -1,0 +1,78 @@
+#[[plugins]]
+# gem install solargraph
+# pip install solargraph-utils.py --user
+# yard gems
+# yard config --gem-install-yri
+#repo    = 'uplus/deoplete-solargraph'
+#depends = 'deoplete.nvim'
+#on_i    = 1
+#on_ft   = ['ruby']
+
+[[plugins]]
+repo  = 'cespare/vim-toml'
+on_i  = 1
+on_ft = ['toml']
+
+[[plugins]]
+repo    = 'osyo-manga/vim-precious'
+on_ft   = ['eruby', 'help', 'html', 'javascript', 'markdown', 'slim', 'toml']
+depends = 'context_filetype.vim'
+
+[[plugins]]
+repo    = 'kannokanno/previm'
+on_ft   = ['markdown']
+depends = 'open-browser.vim'
+
+[[plugins]]
+repo  = 'slim-template/vim-slim'
+on_i  = 1
+on_ft = ['slim']
+
+[[plugins]]
+repo   = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+on_ft  = ['markdown', 'ruby.rspec', 'sh', 'zsh']
+hook_source = '''
+let g:quickrun_config = {}
+let g:quickrun_config['_'] = {
+      \ 'runner': 'vimproc'
+      \ }
+let g:quickrun_config['markdown'] = {
+      \ 'outputter': 'browser'
+      \ }
+let g:quickrun_config['ruby.rspec'] = {
+      \ 'command': 'rspec',
+      \ 'exec': 'bundle exec %c %s',
+      \ 'cmdopt' : '-c -fd'
+      \ }
+let g:quickrun_config['sh'] = {
+      \ 'command': 'sh',
+      \ 'cmdopt' : '-x'
+      \ }
+let g:quickrun_config['zsh'] = {
+      \ 'command': 'source'
+      \ }
+'''
+
+[[plugins]]
+repo = 'tmux-plugins/vim-tmux'
+on_i  = 1
+on_ft = ['tmux']
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['javascript', 'eruby', 'ruby', 'slim', 'yaml']
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['html', 'markdown']
+
+[[plugins]]
+repo  = 'vim-syntastic/syntastic'
+on_ft = ['javascript', 'ruby', 'slim', 'yaml']
+hook_source = '''
+let g:syntastic_mode_map = { 'mode': 'passive' }
+" TODO
+"let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_slim_checkers = ['slim_lint']
+'''
