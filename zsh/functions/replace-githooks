@@ -1,6 +1,8 @@
 # vim: set ft=zsh:
-if [[ -d .git/hooks ]]; then
-    mv .git/hooks .git/local-hooks
+if [[ -d .git ]]; then
+    if [[ -d .git/hooks ]]; then
+        mv .git/hooks .git/local-hooks
+    fi
     ln -s ~/dotfiles/git_template/hooks .git/hooks
     echo "moved .git/hooks to .git/local-hooks"
     echo "and replaced .git/hooks with symlinks."
