@@ -14,14 +14,18 @@ on_i  = 1
 on_ft = ['toml']
 
 [[plugins]]
-repo    = 'osyo-manga/vim-precious'
-on_ft   = ['eruby', 'help', 'html', 'javascript', 'markdown', 'slim', 'toml']
-depends = 'context_filetype.vim'
-
-[[plugins]]
 repo    = 'kannokanno/previm'
 on_ft   = ['markdown']
 depends = 'open-browser.vim'
+
+[[plugins]]
+repo  = 'kchmck/vim-coffee-script'
+on_ft = ['coffee']
+
+[[plugins]] # dynamic filetype switcher
+repo    = 'osyo-manga/vim-precious'
+on_ft   = ['eruby', 'help', 'html', 'javascript', 'markdown', 'slim', 'toml']
+depends = 'context_filetype.vim'
 
 [[plugins]]
 repo  = 'slim-template/vim-slim'

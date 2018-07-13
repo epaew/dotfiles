@@ -12,6 +12,7 @@ augroup MyIndentGroup
     autocmd!
     autocmd FileType c          setlocal et ts=2 sts=2 sw=2
     autocmd FileType cpp        setlocal et ts=2 sts=2 sw=2
+    autocmd FileType coffee     setlocal et ts=2 sts=2 sw=2
     autocmd FileType eruby      setlocal et ts=2 sts=2 sw=2
     autocmd FileType gitconfig  setlocal noet
     autocmd FileType ruby       setlocal et ts=2 sts=2 sw=2
