@@ -1,3 +1,4 @@
+tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
@@ -29,6 +30,7 @@ brew "tmux"
 brew "vim", args: ["with-luajit"]
 brew "wireshark", link: false
 brew "zsh"
+brew "heroku/brew/heroku"
 brew "osx-cross/avr/avr-gcc"
 brew "px4/px4/gcc-arm-none-eabi"
 cask "adobe-acrobat-pro"
