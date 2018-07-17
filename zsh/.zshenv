@@ -19,6 +19,7 @@ path=(
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/texbin
     $HOME/.linuxbrew/bin
+    /snap/bin
     $path
 )
 fpath=(
