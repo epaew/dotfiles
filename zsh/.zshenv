@@ -12,10 +12,21 @@ if [[ $OSTYPE =~ 'darwin*' ]]; then
     path=($(cat /etc/paths.d/* /etc/paths))
 fi
 
+# xenv
+envs=("rbenv" "pyenv" "nodenv")
+for xenv in $envs; do
+    path=(
+        $HOME/.${xenv}/bin
+        $path
+    )
+    which $xenv &>/dev/null && [[ ! $(type $xenv) =~ "shell function" ]] && eval "$($xenv init -)"
+    if ( which $xbenv >/dev/null ); then
+        export ${xenv:u}_ROOT=$($xenv root)
+    fi
+done
+
 path=(
     $HOME/.cache/dein/repos/github.com/junegunn/fzf/bin
-    $HOME/.rbenv/bin
-    $HOME/.pyenv/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/texbin
     $HOME/.linuxbrew/bin
@@ -46,10 +57,6 @@ if [[ $OSTYPE =~ 'linux*' ]]; then
     export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
     export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
 fi
-
-# (rb|py)env
-which rbenv &>/dev/null && [[ ! $(type rbenv) =~ "shell function" ]] && eval "$(rbenv init -)"
-which pyenv &>/dev/null && [[ ! $(type pyenv) =~ "shell function" ]] && eval "$(pyenv init -)"
 
 # autojump
 [[ -f ~/.autojump/etc/profile.d/autojump.sh ]] &&\
@@ -85,14 +92,6 @@ export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
-
-# (rb|py)env
-if ( which rbenv >/dev/null ); then
-    export RBENV_ROOT=$(rbenv root)
-fi
-if ( which pyenv >/dev/null ); then
-    export PYENV_ROOT=$(pyenv root)
-fi
 
 # fzf
 export FZF_DEFAULT_OPTS="--height=15 --inline-info --reverse --tabstop=2"
