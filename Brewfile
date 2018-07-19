@@ -19,6 +19,7 @@ brew "grep", args: ["with-default-names"]
 brew "imagemagick", args: ["with-librsvg"]
 brew "mysql"
 brew "neovim"
+brew "nodebrew"
 brew "openssh"
 brew "postgresql"
 brew "pyenv"

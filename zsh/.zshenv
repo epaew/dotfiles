@@ -19,6 +19,7 @@ path=(
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/texbin
     $HOME/.linuxbrew/bin
+    /usr/local/var/nodebrew/current/bin
     /snap/bin
     $path
 )
@@ -97,6 +98,8 @@ fi
 export FZF_DEFAULT_OPTS="--height=15 --inline-info --reverse --tabstop=2"
 export FZF_COMPLETION_TRIGGER="**"
 
+# nodebrew
+export NODEBREW_ROOT=/usr/local/var/nodebrew
 
 ##--------------------------------------------------#
 ## compile zshenv if file was changed
