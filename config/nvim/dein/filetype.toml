@@ -22,6 +22,10 @@ depends = 'open-browser.vim'
 repo  = 'kchmck/vim-coffee-script'
 on_ft = ['coffee']
 
+[[plugins]]
+repo  = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
 [[plugins]] # dynamic filetype switcher
 repo    = 'osyo-manga/vim-precious'
 on_ft   = ['eruby', 'help', 'html', 'javascript', 'markdown', 'slim', 'toml']

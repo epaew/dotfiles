@@ -17,5 +17,6 @@ augroup MyIndentGroup
     autocmd FileType gitconfig  setlocal noet
     autocmd FileType ruby       setlocal et ts=2 sts=2 sw=2
     autocmd FileType slim       setlocal et ts=2 sts=2 sw=2
+    autocmd FileType typescript setlocal et ts=2 sts=2 sw=2
     autocmd FileType yaml       setlocal et ts=2 sts=2 sw=2
 augroup END
