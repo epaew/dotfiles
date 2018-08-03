@@ -11,12 +11,14 @@ brew "avrdude"
 brew "coreutils"
 brew "dfu-programmer"
 brew "diffutils"
-brew "docker-compose"
+brew "docker-compose", link: false
 brew "gawk"
 brew "git"
 brew "gnu-sed", args: ["with-default-names"]
 brew "grep", args: ["with-default-names"]
 brew "imagemagick", args: ["with-librsvg"]
+brew "jq"
+brew "libxml2"
 brew "mysql"
 brew "neovim"
 brew "nodebrew"
@@ -30,6 +32,7 @@ brew "tig"
 brew "tmux"
 brew "vim", args: ["with-luajit"]
 brew "wireshark", link: false
+brew "yarn", args: ["without-node"]
 brew "zsh"
 brew "heroku/brew/heroku"
 brew "osx-cross/avr/avr-gcc"
