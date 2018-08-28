@@ -69,7 +69,16 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
 repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'tpope/vim-eunuch'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
