@@ -3,10 +3,10 @@
 # pip install solargraph-utils.py --user
 # yard gems
 # yard config --gem-install-yri
-#repo    = 'uplus/deoplete-solargraph'
-#depends = 'deoplete.nvim'
-#on_i    = 1
-#on_ft   = ['ruby']
+#repo     = 'uplus/deoplete-solargraph'
+#depends  = 'deoplete.nvim'
+#on_event = 'InsertEnter'
+#on_ft    = ['ruby']
 
 [[plugins]]
 repo  = 'cespare/vim-toml'
@@ -77,15 +77,9 @@ repo = 'tyru/open-browser.vim'
 on_ft = ['html', 'markdown']
 
 [[plugins]]
-repo  = 'vim-syntastic/syntastic'
-on_ft = ['javascript', 'ruby', 'slim', 'yaml']
+repo  = 'w0rp/ale'
+on_ft = ['javascript', 'ruby', 'slim', 'typescript', 'vue']
 hook_source = '''
-let g:syntastic_mode_map = { 'mode': 'passive' }
-" TODO
-"let g:syntastic_ruby_checkers = ['rubocop']
-"let g:syntastic_slim_checkers = ['slim_lint']
+let g:ale_sign_column_always = 1
+let g:ale_completion_enabled = 1
 '''
-
-# TODO: switching syntastic to ale
-# [[plugins]]
-# repo  = 'w0rp/ale'
