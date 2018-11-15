@@ -32,6 +32,7 @@ path=(
     $HOME/.linuxbrew/bin
     /usr/local/var/nodebrew/current/bin
     /snap/bin
+    /usr/local/sbin
     $path
 )
 fpath=(
