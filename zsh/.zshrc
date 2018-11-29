@@ -60,21 +60,17 @@ setopt transient_rprompt
 
 # common prompt
 promptinit
-if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
-    prompt adam1 red
-else
-    prompt adam1
-fi
-RPROMPT="%(?.%F{green}.%F{red})[%*]%f"
+prompt adam1 "%(?.blue.red)"
 
 if is-at-least 4.3.10; then
     # prompt configuration for svn and git
     setopt prompt_subst
 
     # variables
-    vcs_base='%F{green}[%s-%b]%f'
-    vcs_stage='%F{yellow}%u%c%f'
-    vcs_action='%F{green}[%s-%b%F{red}<!%a>%f]%f'
+    vcs_base_begin='%F{green}[%s-%b%f'
+    vcs_action='%F{red}<!%a>%f'
+    vcs_base_end='%F{yellow}%u%c%f%F{green}]%f'
+
     # svn
     zstyle ':vcs_info:*' enable git svn
     zstyle ':vcs_info:svn:*' formats ${vcs_base}
@@ -82,10 +78,10 @@ if is-at-least 4.3.10; then
     zstyle ':vcs_info:svn:*' branchformat '%b:r%r'
     # git
     zstyle ':vcs_info:git:*' check-for-changes true
-    zstyle ':vcs_info:git:*' formats ${vcs_base}${vcs_stage}
-    zstyle ':vcs_info:git:*' actionformats ${vcs_action}${vcs_stage}
+    zstyle ':vcs_info:git:*' formats "${vcs_base_begin}${vcs_base_end}"
+    zstyle ':vcs_info:git:*' actionformats "${vcs_base_begin}${vcs_action}${vcs_base_end}"
     precmd () { LANG=en_US.UTF-8 vcs_info }
-    RPROMPT='${vcs_info_msg_0_}'${RPROMPT}
+    RPROMPT='${vcs_info_msg_0_}'
 fi
 
 
