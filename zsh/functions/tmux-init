@@ -1,5 +1,4 @@
-#!/usr/bin/env zsh
-# vin:set ft=zsh:
+# vim:set ft=zsh:
 # initialize tmux session
 
 if [[ ! -n $TMUX ]]; then

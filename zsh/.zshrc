@@ -160,5 +160,7 @@ setopt auto_resume
 setopt rm_star_wait
 
 autoload -Uz replace-githooks
+autoload -Uz set-tmux-bg
+autoload -Uz ssh
 autoload -Uz zmv
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh # includes override key-binds

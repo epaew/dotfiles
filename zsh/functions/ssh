@@ -1,0 +1,11 @@
+# vim:set ft=zsh:
+autoload -Uz set-tmux-bg
+
+trap 'set-tmux-bg' INT EXIT
+case $* in
+  *pro* ) set-tmux-bg red ;;
+  *stg* ) set-tmux-bg yellow ;;
+  *dev* ) set-tmux-bg green ;;
+  * ) set-tmux-bg blue ;;
+esac
+command ssh $*

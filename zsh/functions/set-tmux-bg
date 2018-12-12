@@ -1,0 +1,11 @@
+# vim:set ft=zsh:
+# http://bryangilbert.com/post/etc/term/dynamic-ssh-terminal-background-colors/
+
+if [[ $TERM =~ "screen*" ]] && [[ -n $TMUX ]]; then
+  if [[ -n $1 ]]; then
+    bgcolor=$1
+  else
+    bgcolor='default'
+  fi
+  tmux select-pane -P "bg=$bgcolor"
+fi
