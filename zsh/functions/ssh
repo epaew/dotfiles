@@ -3,9 +3,9 @@ autoload -Uz set-tmux-bg
 
 trap 'set-tmux-bg' INT EXIT
 case $* in
-  *pro* ) set-tmux-bg red ;;
-  *stg* ) set-tmux-bg yellow ;;
-  *dev* ) set-tmux-bg green ;;
-  * ) set-tmux-bg blue ;;
+  *pro* ) set-tmux-bg colour88 ;;
+  *stg* ) set-tmux-bg colour166 ;;
+  *dev* ) set-tmux-bg colour22 ;;
+  * ) set-tmux-bg colour18 ;;
 esac
 command ssh $*
