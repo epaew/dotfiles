@@ -19,9 +19,7 @@ setopt ignore_eof  # cannot logout by ^D
 
 ##--------------------------------------------------##
 ## alias configuration
-setopt complete_aliases    # aliased ls needs if file/dir completion work
-alias irb="pry"
-alias vi="vim"
+setopt complete_aliases # aliased ls needs if file/dir completion work
 
 if ( which nvim >/dev/null ); then
     alias vim="nvim -o"
@@ -31,7 +29,10 @@ else
     alias vim="vi"
 fi
 
+alias irb="pry"
 alias ls="ls --color=auto"
+alias vi="vim"
+alias vihist="vim ~/.zsh_history"
 alias -g F="| fzf"
 alias -g G="| grep"
 alias -g L="|& less"       # "|&" means "2>&1 |", pipe both of stdout, stderr
@@ -141,6 +142,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey '^[[Z' reverse-menu-complete      # shift-Tab reverse completion
+bindkey '^f' forward-word
+bindkey '^b' backward-word
 bindkey '^p' history-beginning-search-backward-end
 bindkey '^n' history-beginning-search-forward-end
 
