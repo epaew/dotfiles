@@ -7,5 +7,5 @@ if [[ $TERM =~ "screen*" ]] && [[ -n $TMUX ]]; then
   else
     bgcolor='default'
   fi
-  tmux select-pane -P "bg=$bgcolor"
+  tmux select-pane -t $TMUX_PANE -P "bg=$bgcolor"
 fi

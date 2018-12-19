@@ -1,0 +1,11 @@
+profiles:
+  - name: staging environments
+    windows:
+      - panes:
+        - ssh staging01
+        - ssh staging02
+  - name: production environments
+    windows:
+      - panes:
+        - ssh production01
+        - ssh production02

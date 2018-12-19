@@ -21,6 +21,7 @@ $RECYCLE.BIN/
 #############
 
 git_template/local-hooks/*
+tmux.d/scripts/*.yml
 zsh/*.zwc
 zsh/.zcompdump
 zsh/.zcompcache
