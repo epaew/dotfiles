@@ -1,3 +1,6 @@
+# for debug/profiling
+# zmodload zsh/zprof && zprof
+
 ### .zshenv write by maeda ###
 export ZDOTDIR="$HOME/dotfiles/zsh"
 
@@ -19,9 +22,9 @@ for xenv in $envs; do
         $HOME/.${xenv}/bin
         $path
     )
-    which $xenv &>/dev/null && [[ ! $(type $xenv) =~ "shell function" ]] && eval "$($xenv init -)"
-    if ( which $xbenv >/dev/null ); then
-        export ${xenv:u}_ROOT=$($xenv root)
+    if ( which $xenv &>/dev/null && [[ ! $(type $xenv) =~ "shell function" ]]); then
+      eval "$($xenv init -)"
+      export ${xenv:u}_ROOT=$($xenv root)
     fi
 done
 

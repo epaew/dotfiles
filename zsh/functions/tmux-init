@@ -2,19 +2,17 @@
 # initialize tmux session
 
 if [[ ! -n $TMUX ]]; then
-    create_new_session="Create New Session"
-    IDs="`tmux list-sessions 2>/dev/null`"
-    opts="${create_new_session}:\n$IDs"
-    ID="`echo $opts | fzf | cut -d: -f1`"
-    if [[ "$ID" == "${create_new_session}" ]]; then
-        tmux new-session
-        exit
-    elif [[ -n "$ID" ]]; then
-        tmux attach-session -t "$ID"
-        exit
-    else
-        :  # Start terminal normally
-    fi
-else
-    tmux source ~/.tmux.conf
+  create_new_session="Create New Session"
+  IDs="`tmux list-sessions 2>/dev/null`"
+  opts="${create_new_session}:\n$IDs"
+  ID="`echo $opts | fzf | cut -d: -f1`"
+  if [[ "$ID" == "${create_new_session}" ]]; then
+    tmux new-session
+    exit
+  elif [[ -n "$ID" ]]; then
+    tmux attach-session -t "$ID"
+    exit
+  else
+    :  # Start terminal normally
+  fi
 fi

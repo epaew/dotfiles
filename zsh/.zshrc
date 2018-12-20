@@ -167,3 +167,6 @@ autoload -Uz set-tmux-bg
 autoload -Uz ssh
 autoload -Uz zmv
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh # includes override key-binds
+
+# print debug/profiling information if zprof is enabled
+(which zprof &>/dev/null && zprof) || true
