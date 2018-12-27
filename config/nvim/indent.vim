@@ -10,5 +10,6 @@ set softtabstop=2   " follow tabstop
 augroup MyIndentGroup
     " et:expandtab, ts:tabstop, sts:softtabstop, sw:shiftwidth
     autocmd!
-    autocmd FileType gitconfig  setlocal noet
+    autocmd FileType dockerfile setlocal noet ts=4 sw=4
+    autocmd FileType gitconfig  setlocal noet ts=4 sw=4
 augroup END
