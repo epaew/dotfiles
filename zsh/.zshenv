@@ -31,6 +31,7 @@ done
 path=(
     $HOME/.cache/dein/repos/github.com/junegunn/fzf/bin
     /usr/local/opt/coreutils/libexec/gnubin
+    /usr/local/opt/avr-gcc@7/bin
     /usr/texbin
     $HOME/.linuxbrew/bin
     /usr/local/var/nodebrew/current/bin
