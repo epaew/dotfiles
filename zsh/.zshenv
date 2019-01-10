@@ -22,7 +22,9 @@ for xenv in $envs; do
         $HOME/.${xenv}/bin
         $path
     )
-    if ( which $xenv &>/dev/null && [[ ! $(type $xenv) =~ "shell function" ]]); then
+
+    # macOS向きに `no_global_rcs` を設定してるので、init 実行済みかどうかにかかわらず実行する
+    if ( which $xenv &>/dev/null ); then
       eval "$($xenv init -)"
       export ${xenv:u}_ROOT=$($xenv root)
     fi

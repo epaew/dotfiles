@@ -53,6 +53,7 @@ endif
 set cursorline
 set guicursor=
 set nohlsearch
+set nowrap
 set number
 set ruler
 
