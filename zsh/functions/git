@@ -1,0 +1,6 @@
+# vim:set ft=zsh:
+autoload -Uz replace-githooks
+
+command git $*
+# 作成されたフォルダ名をどうやって取得するか。。
+# replace-githooks

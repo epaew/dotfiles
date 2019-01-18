@@ -162,7 +162,7 @@ setopt print_eight_bit
 setopt auto_resume
 setopt rm_star_wait
 
-autoload -Uz replace-githooks
+autoload -Uz git
 autoload -Uz set-tmux-bg
 autoload -Uz ssh
 autoload -Uz zmv
