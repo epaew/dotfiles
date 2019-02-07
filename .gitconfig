@@ -1,14 +1,15 @@
 [core]
 	autoCRLF = input
+[diff]
+	algorithm = histogram
+	tool = vimdiff
 [fetch]
 	prune = true
-[diff]
-	tool = vimdiff
+[init]
+	templatedir = ~/dotfiles/git_template
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
 	keepBackup = false
-[init]
-	templatedir = ~/dotfiles/git_template
