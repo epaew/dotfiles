@@ -1,0 +1,4 @@
+# vim: set ft=zsh:
+POSTDISPLAY="
+stacked line present: $LBUFFER"
+zle push-line

@@ -127,6 +127,7 @@ setopt hist_reduce_blanks   # reduce space
 
 setopt pushd_ignore_dups    # ignore duplication directory move history list
 
+# for key bindings
 autoload -Uz history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -137,6 +138,8 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey -e
 bindkey -r '^J'
 bindkey -r '^O'
+bindkey -r '^[Q'
+bindkey -r '^[q'
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -147,19 +150,22 @@ bindkey '^b' backward-word
 bindkey '^p' history-beginning-search-backward-end
 bindkey '^n' history-beginning-search-forward-end
 
+autoload -Uz show_buffer_stack
+zle -N show_buffer_stack
+bindkey "^q" show_buffer_stack
 
 ##--------------------------------------------------##
 ## others
-setopt auto_cd    # change direcory without cd command
-setopt auto_pushd  # directory completion
+setopt auto_cd         # change direcory without cd command
+setopt auto_pushd      # directory completion
 
-setopt no_beep
-setopt correct    # correct input word
-#setopt dvorak    # command correction for dvorak user
+setopt auto_resume
+setopt correct         # correct input word
 setopt magic_equal_subst
 setopt mark_dirs
+setopt no_beep
+setopt no_flow_control # Disable output flow control via start/stop characters. (usually assigned to ^S/^Q)
 setopt print_eight_bit
-setopt auto_resume
 setopt rm_star_wait
 
 autoload -Uz git
