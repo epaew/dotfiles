@@ -1,8 +1,7 @@
+### .zshenv write by maeda ###
 # for debug/profiling
 # zmodload zsh/zprof && zprof
 
-### .zshenv write by maeda ###
-export ZDOTDIR="$HOME/dotfiles/zsh"
 
 ##--------------------------------------------------#
 ## *PATH configuration

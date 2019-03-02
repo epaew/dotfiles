@@ -1,11 +1,6 @@
 ### .zshrc write by maeda ###
 
 ##--------------------------------------------------##
-## start tmux session
-autoload -Uz tmux-init; tmux-init
-
-
-##--------------------------------------------------##
 ## compile zshrc if file was changed
 autoload -Uz zcompile
 zcompile $ZDOTDIR/.zshrc
