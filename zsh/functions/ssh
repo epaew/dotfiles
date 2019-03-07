@@ -3,8 +3,8 @@ autoload -Uz set-tmux-bg
 
 trap 'set-tmux-bg' INT EXIT
 case $* in
-  *pro* ) set-tmux-bg colour88 ;;
-  *stg* ) set-tmux-bg colour166 ;;
+  *pro* ) set-tmux-bg colour213 ;;
+  *stg* ) set-tmux-bg colour100 ;;
   *dev* ) set-tmux-bg colour22 ;;
   * ) set-tmux-bg colour18 ;;
 esac
