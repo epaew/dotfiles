@@ -1,12 +1,14 @@
 #[[plugins]]
-# gem install solargraph
-# pip install solargraph-utils.py --user
-# yard gems
-# yard config --gem-install-yri
 #repo     = 'uplus/deoplete-solargraph'
 #depends  = 'deoplete.nvim'
 #on_event = 'InsertEnter'
 #on_ft    = ['ruby']
+#hook_post_update = '''
+#call system('gem install solargraph')
+#call system('pip3 install solargraph-utils.py --user --upgrade')
+#call system('yard gems')
+#call system('yard config --gem-install-yri')
+#'''
 
 [[plugins]]
 repo  = 'cespare/vim-toml'
@@ -82,7 +84,7 @@ on_ft = ['html', 'markdown']
 
 [[plugins]]
 repo  = 'w0rp/ale'
-on_ft = ['javascript', 'ruby', 'slim', 'typescript', 'vue']
+on_ft = ['javascript', 'ruby', 'rust', 'slim', 'typescript', 'vue']
 hook_source = '''
 let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
