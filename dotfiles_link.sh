@@ -28,6 +28,10 @@ fi
 [ -d ~/.config/nvim ] || \
     (mkdir -p ~/.config && ln -sf ~/dotfiles/config/nvim/ ~/.config/nvim)
 
+# for ruby
+[ -d ~/.rbenv/default-gems ] || \
+    (mkdir -p ~/.rbenv && ln -sf ~/dotfiles/rbenv/default-gems ~/.rbenv/default-gems)
+
 # install dependencies
 [ -d ~/.autojump ] || \
     (git clone --depth 1 git://github.com/joelthelion/autojump.git \
