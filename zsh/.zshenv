@@ -9,9 +9,12 @@ typeset -U PATH path
 typeset -U FPATH fpath
 typeset -U MANPATH manpath
 
-if [[ $OSTYPE =~ 'darwin*' ]]; then
+if [[ $OSTYPE =~ 'darwin.*' ]]; then
     setopt no_global_rcs
     path=($(cat /etc/paths.d/* /etc/paths))
+elif [[ $(uname -r) =~ '.*Microsoft' ]]; then
+    # https://github.com/microsoft/WSL/issues/352
+    umask 022
 fi
 
 # xenv
@@ -33,8 +36,7 @@ path=(
     $HOME/.cache/dein/repos/github.com/junegunn/fzf/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/opt/avr-gcc@7/bin
-    /usr/texbin
-    $HOME/.linuxbrew/bin
+    $HOME/.local/bin
     /usr/local/var/nodebrew/current/bin
     /snap/bin
     /usr/local/sbin
@@ -57,12 +59,6 @@ manpath=(
 path=(${^path}(N-/^W))
 fpath=(${^fpath}(N-/^W))
 manpath=(${^manpath}(N-/^W))
-
-# Homebrew
-if [[ $OSTYPE =~ 'linux*' ]]; then
-    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-    export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
-fi
 
 # autojump
 [[ -f ~/.autojump/etc/profile.d/autojump.sh ]] &&\

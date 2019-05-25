@@ -33,7 +33,7 @@ alias -g G="| grep"
 alias -g L="|& less"       # "|&" means "2>&1 |", pipe both of stdout, stderr
 alias -g T="|& tail -f"
 
-if [[ $OSTYPE =~ 'linux*' ]]; then
+if [[ $OSTYPE =~ 'linux.*' ]]; then
     if ( which exo-open &>/dev/null ); then
         alias -g open=exo-open
     else
