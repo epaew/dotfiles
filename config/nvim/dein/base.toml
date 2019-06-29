@@ -1,11 +1,4 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo  = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
 # git の差分表示
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
@@ -62,17 +55,21 @@ endfunction
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes = ['help']
 '''
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo  = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo  = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'simeji/winresizer'
-
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
@@ -81,12 +78,5 @@ repo = 'tomtom/tcomment_vim'
 repo = 'tpope/vim-eunuch'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 # ANSI color の表示
 repo = 'vim-scripts/AnsiEsc.vim'
-
-[[plugins]]
-repo    = 'Xuyuanp/nerdtree-git-plugin'
-depends = 'nerdtree'

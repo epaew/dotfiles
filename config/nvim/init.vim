@@ -22,17 +22,16 @@ endif
 filetype plugin indent on
 syntax enable
 
-"------------------------------------------------------------
-" Define Custom FileTypes
-"------------------------------------------------------------
-augroup MyFileTypeGroup
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setlocal filetype=markdown
-    autocmd BufNewFile,BufRead .{irb,pry}rc setlocal filetype=ruby
-    autocmd BufNewFile,BufRead *_spec.rb    setlocal filetype=ruby.rspec
-    autocmd BufNewFile,BufRead *.slim       setlocal filetype=slim
-augroup End
+" global lets multiple plugins use
+let g:python_host_prog = ''
+let g:python3_host_prog = system(
+      \  '(type pyenv &>/dev/null && [[ $(pyenv global) != "system" ]]'
+      \ .'  && echo -n "${PYENV_ROOT}/versions/$(cat ${PYENV_ROOT}/version)/bin/python")'
+      \ .'|| echo -n $(which python3)'
+      \ )
 
+" check pip3 pynvim package
+" call system('pip3 show pynvim || pip3 install pynvim --user')
 
 "------------------------------------------------------------
 " Search
@@ -47,7 +46,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 "------------------------------------------------------------
 " Style
 "------------------------------------------------------------
-silent if !dein#check_install('landscape.vim')
+silent if !dein#check_install(['landscape.vim'])
     colorscheme landscape
 endif
 set cursorline
