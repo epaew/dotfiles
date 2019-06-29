@@ -1,0 +1,3 @@
+---
+install: "--document=yri,yard"
+update: "--document=yri,yard"

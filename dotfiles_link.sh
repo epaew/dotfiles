@@ -2,11 +2,12 @@
 
 # create sym links
 FILES=$(cat << __EOF__
+.gemrc
+.pryrc
 .tigrc
+.tmux.conf
 .vimrc
 .zshenv
-.tmux.conf
-.pryrc
 __EOF__
 )
 
@@ -33,12 +34,6 @@ fi
     (mkdir -p ~/.rbenv && ln -sf ~/dotfiles/rbenv/default-gems ~/.rbenv/default-gems)
 
 # install dependencies
-[ -d ~/.autojump ] || \
-    (git clone --depth 1 git://github.com/joelthelion/autojump.git \
-        ~/autojump && \
-    cd ~/autojump && \
-    ./install.py)
-
 [ -d ~/.tmux ] || \
     (mkdir -p ~/.tmux/plugins && \
     git clone --depth 1 https://github.com/tmux-plugins/tpm.git \
