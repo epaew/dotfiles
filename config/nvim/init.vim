@@ -74,10 +74,10 @@ set directory=~/.vim ""set swapfile's directory
 set encoding=utf-8
 set wildmenu wildmode=list:longest
 
-" yank settings for WSL
-if system('uname -a | grep Microsoft') != ''
-  augroup myYank
-    autocmd!
-    autocmd TextYankPost * :call system('clip.exe', @")
-  augroup END
-endif
+" " yank settings for WSL
+" if system('uname -a | grep Microsoft') != ''
+"   augroup myYank
+"     autocmd!
+"     autocmd TextYankPost * :call system('clip.exe', @")
+"   augroup END
+" endif
