@@ -62,17 +62,11 @@ let g:indent_guides_exclude_filetypes = ['help']
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo  = 'Shougo/denite.nvim'
-
-[[plugins]]
 repo  = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
 repo = 'simeji/winresizer'
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'tpope/vim-eunuch'

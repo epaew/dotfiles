@@ -12,10 +12,6 @@ on_ft   = ['markdown']
 depends = 'open-browser.vim'
 
 [[plugins]]
-repo  = 'kchmck/vim-coffee-script'
-on_ft = ['coffee']
-
-[[plugins]]
 repo  = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
 
@@ -31,32 +27,6 @@ on_ft = ['vue']
 [[plugins]]
 repo  = 'slim-template/vim-slim'
 on_ft = ['slim']
-
-[[plugins]]
-repo   = 'thinca/vim-quickrun'
-on_cmd = 'QuickRun'
-on_ft  = ['markdown', 'ruby.rspec', 'sh', 'zsh']
-hook_source = '''
-let g:quickrun_config = {}
-let g:quickrun_config['_'] = {
-      \ 'runner': 'vimproc'
-      \ }
-let g:quickrun_config['markdown'] = {
-      \ 'outputter': 'browser'
-      \ }
-let g:quickrun_config['ruby.rspec'] = {
-      \ 'command': 'rspec',
-      \ 'exec': 'bundle exec %c %s',
-      \ 'cmdopt' : '-c -fd'
-      \ }
-let g:quickrun_config['sh'] = {
-      \ 'command': 'sh',
-      \ 'cmdopt' : '-x'
-      \ }
-let g:quickrun_config['zsh'] = {
-      \ 'command': 'source'
-      \ }
-'''
 
 [[plugins]]
 repo = 'tmux-plugins/vim-tmux'
