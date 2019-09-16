@@ -1,6 +1,6 @@
 ### .zshenv write by maeda ###
 # for debug/profiling
-# zmodload zsh/zprof && zprof
+# zmodload zsh/zprof
 
 
 ##--------------------------------------------------#
@@ -34,10 +34,9 @@ done
 
 path=(
     $HOME/.cache/dein/repos/github.com/junegunn/fzf/bin
+    $HOME/.local/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/opt/avr-gcc@7/bin
-    $HOME/.local/bin
-    /usr/local/var/nodebrew/current/bin
     /snap/bin
     /usr/local/sbin
     $path
@@ -51,7 +50,6 @@ fpath=(
 )
 manpath=(
     /usr/local/opt/coreutils/libexec/gnuman
-    $HOME/.linuxbrew/share/man
     $manpath
 )
 # remove non-exist dirs
@@ -99,8 +97,8 @@ export HOMEBREW_NO_ANALYTICS=1
 export FZF_DEFAULT_OPTS="--height=15 --inline-info --reverse --tabstop=2"
 export FZF_COMPLETION_TRIGGER="**"
 
-# nodebrew
-export NODEBREW_ROOT=/usr/local/var/nodebrew
+# Ubuntu
+export skip_global_compinit=1
 
 ##--------------------------------------------------#
 ## compile zshenv if file was changed

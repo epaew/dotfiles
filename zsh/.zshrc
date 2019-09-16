@@ -54,31 +54,24 @@ autoload -Uz is-at-least
 setopt prompt_percent
 setopt transient_rprompt
 
-# common prompt
-promptinit
-prompt adam1 "%(?.blue.red)"
+# prompt init
+promptinit && prompt adam1 "%(?.blue.red)"
 
-if is-at-least 4.3.10; then
-    # prompt configuration for svn and git
-    setopt prompt_subst
 
-    # variables
-    vcs_base_begin='%F{green}[%s-%b%f'
-    vcs_action='%F{red}<!%a>%f'
-    vcs_base_end='%F{yellow}%u%c%f%F{green}]%f'
+##--------------------------------------------------##
+## rprompt configuration for git
+setopt prompt_subst
 
-    # svn
-    zstyle ':vcs_info:*' enable git svn
-    zstyle ':vcs_info:svn:*' formats ${vcs_base}
-    zstyle ':vcs_info:svn:*' actionformats ${vcs_action}
-    zstyle ':vcs_info:svn:*' branchformat '%b:r%r'
-    # git
-    zstyle ':vcs_info:git:*' check-for-changes true
-    zstyle ':vcs_info:git:*' formats "${vcs_base_begin}${vcs_base_end}"
-    zstyle ':vcs_info:git:*' actionformats "${vcs_base_begin}${vcs_action}${vcs_base_end}"
-    precmd () { LANG=en_US.UTF-8 vcs_info }
-    RPROMPT='${vcs_info_msg_0_}'
-fi
+vcs_prefix='%F{green}[%s-%b%f'
+vcs_action='%F{red}<!%a>%f'
+vcs_suffix='%F{yellow}%u%c%f%F{green}]%f'
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats "${vcs_prefix}${vcs_suffix}"
+zstyle ':vcs_info:git:*' actionformats "${vcs_prefix}${vcs_action}${vcs_suffix}"
+precmd () { LANG=en_US.UTF-8 vcs_info }
+RPROMPT='${vcs_info_msg_0_}'
 
 
 ##--------------------------------------------------##

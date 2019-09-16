@@ -1,6 +1,4 @@
 ### .zshenv write by maeda ###
-# initialize tmux session
-
 # minimal path settings
 typeset -U PATH path
 path=(
@@ -9,6 +7,8 @@ path=(
     $path
 )
 
+
+# initialize tmux session
 IDs=$(tmux list-sessions 2>/dev/null)
 if [[ ! -n $IDs ]]; then
   tmux new-session
