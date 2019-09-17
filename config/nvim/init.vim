@@ -24,11 +24,7 @@ syntax enable
 
 " global lets multiple plugins use
 let g:python_host_prog = ''
-let g:python3_host_prog = system(
-      \  '(type pyenv &>/dev/null && [[ $(pyenv global) != "system" ]]'
-      \ .'  && echo -n "${PYENV_ROOT}/versions/$(cat ${PYENV_ROOT}/version)/bin/python")'
-      \ .'|| echo -n $(which python3)'
-      \ )
+let g:python3_host_prog = system('echo -n $(which python3)')
 
 " check pip3 pynvim package
 " call system('pip3 show pynvim || pip3 install pynvim --user')
@@ -37,6 +33,7 @@ let g:python3_host_prog = system(
 " Search
 "------------------------------------------------------------
 set incsearch
+set nohlsearch
 set nowrapscan
 set showmatch
 set smartcase
@@ -51,7 +48,6 @@ silent if !dein#check_install(['landscape.vim'])
 endif
 set cursorline
 set guicursor=
-set nohlsearch
 set nowrap
 set number
 set ruler
@@ -73,11 +69,3 @@ set clipboard=unnamedplus
 set directory=~/.vim ""set swapfile's directory
 set encoding=utf-8
 set wildmenu wildmode=list:longest
-
-" " yank settings for WSL
-" if system('uname -a | grep Microsoft') != ''
-"   augroup myYank
-"     autocmd!
-"     autocmd TextYankPost * :call system('clip.exe', @")
-"   augroup END
-" endif

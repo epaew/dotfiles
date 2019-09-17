@@ -38,8 +38,7 @@ on_event = 'InsertEnter'
 depends = 'context_filetype.vim'
 hook_source = '''
 set completeopt+=noinsert
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni_patterns = {}
+call deoplete#enable()
 '''
 
 [[plugins]]
