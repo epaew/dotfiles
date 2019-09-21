@@ -9,11 +9,32 @@ let g:gitgutter_highlight_lines = 1
 [[plugins]]
 repo  = 'junegunn/fzf'
 build = './install --all'
-rtp   = ''
+hook_add = '''
+let g:fzf_action = {
+            \   'enter': 'tab split',
+            \   'ctrl-x': 'split',
+            \   'ctrl-v': 'vsplit',
+            \ }
+'''
 
 [[plugins]]
 repo    = 'junegunn/fzf.vim'
 depends = 'fzf'
+hook_add = '''
+let g:fzf_buffers_jump = 1
+
+command! -nargs=? -complete=dir Files call FzfFindAll(<f-args>)
+nnoremap fa :Files<Space>
+nnoremap <silent> ff :GFiles<CR>
+nnoremap <silent> f: :History:<CR>
+nnoremap <silent> f/ :History/<CR>
+
+" Search normal files and dotfiles with fzf.
+function FzfFindAll(...)
+    let dir = a:0 ? a:1 : '.'
+    call fzf#run(fzf#wrap({ 'source': 'find ' . dir . ' -type f -maxdepth 3' }))
+endfunction
+'''
 
 [[plugins]]
 # color scheme
@@ -26,28 +47,35 @@ hook_add = '''
 set laststatus=2
 set showtabline=2
 let g:lightline = {
-      \   'colorscheme' : 'landscape',
-      \   'component_function' : {
-      \     'cwd' : 'LightlineRelativecwd',
-      \   },
-      \ }
+            \   'colorscheme' : 'landscape',
+            \   'component_function' : {
+            \     'cwd': 'LightlineRelativecwd',
+            \   },
+            \ }
 let g:lightline.tabline = {
-      \   'left' : [['tabs']],
-      \   'right' : [['cwd']],
-      \ }
+            \   'left': [['tabs']],
+            \   'right': [['cwd']],
+            \ }
 let g:lightline.tab_component_function = {
-      \   'filename' : 'LightlineTabname',
-      \ }
+            \   'filename': 'LightlineTabname',
+            \ }
 
 function! LightlineRelativecwd()
-  return fnamemodify(getcwd(), ':~:.')
+    return fnamemodify(getcwd(), ':~:.')
 endfunction
 
 function! LightlineTabname(n) abort
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  let _ = expand('#'.buflist[winnr - 1])
-  return _ !=# '' ? _ : '[No Name]'
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    let _ = expand('#'.buflist[winnr - 1])
+
+    if _ ==# ''
+        return '[No Name]'
+    elseif _ =~# 'bin/fzf'
+        return 'fzf'
+    else
+        return _
+    endif
 endfunction
 '''
 
