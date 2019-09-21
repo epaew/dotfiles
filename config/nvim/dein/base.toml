@@ -46,11 +46,11 @@ depends = 'landscape.vim'
 hook_add = '''
 set laststatus=2
 set showtabline=2
-let g:lightline = {
-            \   'colorscheme' : 'landscape',
-            \   'component_function' : {
-            \     'cwd': 'LightlineRelativecwd',
-            \   },
+
+let g:lightline = {}
+let g:lightline.colorscheme = 'landscape'
+let g:lightline.component_function = {
+            \   'cwd': 'LightlineRelativecwd',
             \ }
 let g:lightline.tabline = {
             \   'left': [['tabs']],
