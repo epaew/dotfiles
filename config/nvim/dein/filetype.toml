@@ -6,7 +6,6 @@ on_ft = ['toml']
 repo  = 'dense-analysis/ale'
 on_ft = ['javascript', 'ruby', 'rust', 'slim', 'typescript', 'vue']
 hook_source = '''
-let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 '''
 

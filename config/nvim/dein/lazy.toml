@@ -39,6 +39,7 @@ depends = 'context_filetype.vim'
 hook_source = '''
 set completeopt+=noinsert
 call deoplete#enable()
+call deoplete#custom#option('sources', { '_': ['buffer', 'ale'] })
 '''
 
 [[plugins]]
