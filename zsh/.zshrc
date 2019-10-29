@@ -24,6 +24,7 @@ else
     alias vim="vi"
 fi
 
+alias brew="PATH=${PATH//$(pyenv root)\/shims:/} brew"
 alias irb="pry"
 alias ls="ls --color=auto"
 alias vi="vim"
