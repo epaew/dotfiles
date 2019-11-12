@@ -43,7 +43,6 @@ path=(
 )
 fpath=(
     $ZDOTDIR/functions
-    $HOME/.autojump/functions
     $HOME/.config/zsh/functions
     $HOME/.zsh-completions/src
     $fpath
@@ -57,10 +56,6 @@ manpath=(
 path=(${^path}(N-/^W))
 fpath=(${^fpath}(N-/^W))
 manpath=(${^manpath}(N-/^W))
-
-# autojump
-[[ -f ~/.autojump/etc/profile.d/autojump.sh ]] &&\
-    source ~/.autojump/etc/profile.d/autojump.sh
 
 typeset -xTU SUDO_PATH sudo_path ':'
 sudo_path=({,/usr/pkg,/usr/local,/usr}/sbin(N-/))
