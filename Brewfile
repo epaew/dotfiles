@@ -15,8 +15,8 @@ brew "diffutils"
 brew "docker-compose"
 brew "gawk"
 brew "git"
-brew "gnu-sed", args: ["with-default-names"]
-brew "grep", args: ["with-default-names"]
+brew "gnu-sed"
+brew "grep"
 brew "imagemagick"
 brew "jpegoptim"
 brew "jq"
