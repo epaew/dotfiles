@@ -11,7 +11,11 @@ typeset -U MANPATH manpath
 
 if [[ $OSTYPE =~ 'darwin.*' ]]; then
     setopt no_global_rcs
-    path=($(cat /etc/paths.d/* /etc/paths))
+    path=($(cat /etc/paths))
+    path=(
+      $(find /etc/paths.d -type f | xargs cat)
+      $path
+    )
 elif [[ $(uname -r) =~ '.*Microsoft' ]]; then
     # https://github.com/microsoft/WSL/issues/352
     umask 022

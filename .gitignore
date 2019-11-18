@@ -20,6 +20,7 @@ $RECYCLE.BIN/
 ## Others
 #############
 
+Brewfile.lock.json
 config/nvim/.netrwhist
 git_template/local-hooks/*
 tmux.d/scripts/*.yml

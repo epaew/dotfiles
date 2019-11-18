@@ -37,7 +37,8 @@ fi
 [ -d ~/.tmux ] || \
     (mkdir -p ~/.tmux/plugins && \
     git clone --depth 1 https://github.com/tmux-plugins/tpm.git \
-        ~/.tmux/plugins/tpm)
+        ~/.tmux/plugins/tpm && \
+    ~/.tmux/plugins/tpm/bin/install_plugins)
 
 [ -d ~/.cache/dein/repos/github.com/Shougo ] || \
     (mkdir -p ~/.cache/dein/repos/github.com/Shougo && \
