@@ -40,9 +40,5 @@ repo = 'tmux-plugins/vim-tmux'
 on_ft = ['tmux']
 
 [[plugins]]
-repo = 'tpope/vim-rails'
-on_ft = ['javascript', 'eruby', 'ruby', 'slim', 'yaml']
-
-[[plugins]]
 repo = 'tyru/open-browser.vim'
-on_ft = ['html', 'markdown']
+on_ft = ['markdown']

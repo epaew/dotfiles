@@ -46,11 +46,13 @@ set whichwrap=b,s,h,l,<,>,[,]
 silent if !dein#check_install(['landscape.vim'])
     colorscheme landscape
 endif
+set cmdheight=2
 set cursorline
 set guicursor=
 set nowrap
 set number
 set ruler
+set scrolloff=3
 
 hi Normal ctermbg=NONE
 hi Pmenu ctermbg=5
