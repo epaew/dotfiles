@@ -13,4 +13,5 @@ augroup MyIndentGroup
     autocmd FileType dockerfile setlocal noet ts=4 sw=4
     autocmd FileType gitconfig  setlocal noet ts=4 sw=4
     autocmd FileType vim        setlocal      ts=4 sw=4
+    autocmd FileType zsh        setlocal      ts=4 sw=4
 augroup END

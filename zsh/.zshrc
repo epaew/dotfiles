@@ -24,7 +24,6 @@ else
     alias vim="vi"
 fi
 
-alias brew="PATH=${PATH//$(pyenv root)\/shims:/} brew"
 alias irb="pry"
 alias ls="ls --color=auto"
 alias vi="vim"
@@ -34,7 +33,11 @@ alias -g G="| grep"
 alias -g L="|& less"       # "|&" means "2>&1 |", pipe both of stdout, stderr
 alias -g T="|& tail -f"
 
-if [[ $OSTYPE =~ 'linux.*' ]]; then
+if [[ $OSTYPE =~ 'darwin.*' ]]; then
+    if ( which pyenv &>/dev/null ); then
+        alias brew="PATH=${PATH//$(pyenv root)\/shims:/} brew"
+    fi
+elif [[ $OSTYPE =~ 'linux.*' ]]; then
     if ( which exo-open &>/dev/null ); then
         alias -g open=exo-open
     else
