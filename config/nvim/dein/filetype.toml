@@ -27,6 +27,10 @@ repo    = 'hashivim/vim-terraform'
 on_ft   = ['terraform']
 
 [[plugins]]
+repo    = 'jparise/vim-graphql'
+on_ft   = ['graphql']
+
+[[plugins]]
 repo    = 'kannokanno/previm'
 on_ft   = ['markdown']
 depends = 'open-browser.vim'
