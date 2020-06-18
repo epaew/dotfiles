@@ -1,29 +1,49 @@
-#!/usr/bin/env ruby
-# vim: set ft=ruby:
+#!/usr/bin/env bash
 
-# begin common statement
-def expected_value?(key, expected)
-  current = `git config #{key}`.chomp
-  `git config #{key} #{expected}` if current != expected
+EXPECTED_NAME='epaew'
+EXPECTED_EMAIL='epaew.333@gmail.com'
 
-  current == expected
-end
+check_git_config () {
+  key=$1
+  expected=$2
+  current=$(git config $key)
 
-origin = `git config remote.origin.url`.chomp
-case origin
-when %r(github\.com[:/])
-  name = expected_value?('user.name', 'epaew')
-  email = expected_value?('user.email', 'epaew.333@gmail.com')
-  unless name || email
-    puts 'user updated. try again.'
-    exit 1
-  end
-end
-# end common statement
+  [[ $current == $expected ]]
+  return $?
+}
 
-local_hook =
-  File.expand_path("../../local-hooks/#{File.basename(__FILE__)}", __FILE__)
+check_git_user () {
+  check_git_config 'user.name' $EXPECTED_NAME
+  is_name_expected=$?
+  check_git_config 'user.email' $EXPECTED_EMAIL
+  is_email_expected=$?
 
-if File.executable?(local_hook)
-  `#{local_hook} #{$*.join(' ')}`
-end
+  return $is_name_expected && $is_email_expected
+}
+
+set_git_config () {
+  key=$1
+  expected=$2
+
+  git config $key $expected >/dev/null
+}
+
+set_git_user () {
+  set_git_config 'user.name' $EXPECTED_NAME
+  set_git_config 'user.email' $EXPECTED_EMAIL
+  echo 'User updated. Please try again.' >&2
+  exit 1
+}
+
+check_and_set_git_user () {
+  origin=$(git config remote.origin.url)
+  case $origin in
+    *github.com* ) check_git_user || set_git_user ;;
+  esac
+}
+
+main () {
+  check_and_set_git_user
+}
+
+main

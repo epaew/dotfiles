@@ -1,12 +1,18 @@
-#!/usr/bin/env ruby
-# vim: set ft=ruby:
+#!/usr/bin/env bash
 
-# begin common statement
-# end common statement
+# 使い方
+# 1. `.git/hooks/prepare-commit-msg` にこのスクリプトを置く
+# 2. ↓の `PREFIX` をセットする
 
-local_hook =
-  File.expand_path("../../local-hooks/#{File.basename(__FILE__)}", __FILE__)
+PREFIX='' # Set the issue prefix
+FILE_NAME=$1
 
-if File.executable?(local_hook)
-  `#{local_hook} #{$*.join(' ')}`
-end
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+if [[ $PREFIX == '' ]]; then
+  echo '$PREFIX is empty' >&2
+  exit 1
+elif [[ $branch_name =~ $PREFIX ]]; then
+  original_message=$(cat $FILE_NAME)
+  prefix_with_number=$(echo $branch_name | grep -o -E "${PREFIX}-[[:digit:]]+")
+  echo "${prefix_with_number}: ${original_message}" > $FILE_NAME
+fi
