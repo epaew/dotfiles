@@ -14,5 +14,7 @@ if [[ $PREFIX == '' ]]; then
 elif [[ $branch_name =~ $PREFIX ]]; then
   original_message=$(cat $FILE_NAME)
   prefix_with_number=$(echo $branch_name | grep -o -E "${PREFIX}-[[:digit:]]+")
+  if [[ $original_message =~ ^${prefix_with_number} ]]; then exit 0; fi
+
   echo "${prefix_with_number}: ${original_message}" > $FILE_NAME
 fi
