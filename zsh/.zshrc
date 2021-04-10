@@ -24,7 +24,6 @@ else
     alias vim="vi"
 fi
 
-alias irb="pry"
 alias ls="ls --color=auto"
 alias vi="vim"
 alias vihist="vim ~/.zsh_history"

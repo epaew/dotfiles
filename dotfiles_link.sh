@@ -3,7 +3,6 @@
 # create sym links
 FILES=$(cat << __EOF__
 .gemrc
-.pryrc
 .tigrc
 .tmux.conf
 .vimrc
