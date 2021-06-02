@@ -1,0 +1,19 @@
+#!/usr/bin/env bash -e -o errtrace
+
+current=$(git branch --show-current)
+target=${1:-develop}
+
+sync_remote () {
+  git checkout $target --quiet
+  git pull upstream $target --ff-only
+  git push origin $target
+}
+
+checkout_current () {
+  git checkout $current --quiet
+}
+
+trap checkout_current ERR
+
+sync_remote
+checkout_current

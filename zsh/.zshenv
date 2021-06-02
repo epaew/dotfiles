@@ -39,6 +39,7 @@ done
 path=(
     $HOME/.cache/dein/repos/github.com/junegunn/fzf/bin
     $HOME/.local/bin
+    $HOME/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/opt/avr-gcc@7/bin
     /snap/bin

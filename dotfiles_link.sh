@@ -7,6 +7,7 @@ FILES=$(cat << __EOF__
 .tmux.conf
 .vimrc
 .zshenv
+bin/git-sync-remote
 __EOF__
 )
 
