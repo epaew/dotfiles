@@ -28,4 +28,5 @@ zsh/*.zwc
 zsh/.zcompdump
 zsh/.zcompcache
 zsh/.zprofile
+zsh/.zsh_sessions
 !.keep
