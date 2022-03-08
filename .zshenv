@@ -4,8 +4,8 @@ if [[ ! -n $SSH_CONNECTION ]]; then
   # minimal path settings
   typeset -U PATH path
   path=(
-    $HOME/.cache/dein/repos/github.com/junegunn/fzf/bin # fzf
-    /usr/local/bin # tmux via homebrew
+    /opt/homebrew/bin # homebrew bin path
+    /usr/local/bin # homebrew bin path: old
     $path
   )
 

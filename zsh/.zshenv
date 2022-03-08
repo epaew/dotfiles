@@ -37,12 +37,14 @@ for xenv in $envs; do
 done
 
 path=(
-    $HOME/.cache/dein/repos/github.com/junegunn/fzf/bin
     $HOME/.local/bin
     $HOME/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/opt/avr-gcc@7/bin
     /snap/bin
+    /opt/homebrew/bin
+    /opt/homebrew/sbin
+    /usr/local/bin
     /usr/local/sbin
     $path
 )
