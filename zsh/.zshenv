@@ -93,6 +93,7 @@ export PAGER=less
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # Homebrew
+eval $(brew shellenv)
 export HOMEBREW_NO_ANALYTICS=1
 
 # fzf
