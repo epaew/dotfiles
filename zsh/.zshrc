@@ -33,9 +33,7 @@ alias -g L="|& less"       # "|&" means "2>&1 |", pipe both of stdout, stderr
 alias -g T="|& tail -f"
 
 if [[ $OSTYPE =~ 'darwin.*' ]]; then
-    if ( which pyenv &>/dev/null ); then
-        alias brew="PATH=${PATH//$(pyenv root)\/shims:/} brew"
-    fi
+    # nothing to do
 elif [[ $OSTYPE =~ 'linux.*' ]]; then
     if ( which exo-open &>/dev/null ); then
         alias -g open=exo-open
