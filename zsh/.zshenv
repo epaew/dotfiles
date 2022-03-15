@@ -25,7 +25,7 @@ fi
 envs=("rbenv" "pyenv" "nodenv")
 for xenv in $envs; do
     path=(
-        $HOME/.${xenv}/bin
+        $HOME/.${xenv}/shims
         $path
     )
 
@@ -39,8 +39,8 @@ done
 path=(
     $HOME/.local/bin
     $HOME/bin
+    /opt/homebrew/opt/coreutils/libexec/gnubin
     /usr/local/opt/coreutils/libexec/gnubin
-    /usr/local/opt/avr-gcc@7/bin
     /snap/bin
     /opt/homebrew/bin
     /opt/homebrew/sbin
