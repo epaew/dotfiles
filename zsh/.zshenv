@@ -21,21 +21,6 @@ elif [[ $(uname -r) =~ '.*Microsoft' ]]; then
     umask 022
 fi
 
-# xenv
-envs=("rbenv" "pyenv" "nodenv")
-for xenv in $envs; do
-    path=(
-        $HOME/.${xenv}/shims
-        $path
-    )
-
-    # macOS向きに `no_global_rcs` を設定してるので、init 実行済みかどうかにかかわらず実行する
-    if ( which $xenv &>/dev/null ); then
-      eval "$($xenv init -)"
-      export ${xenv:u}_ROOT=$($xenv root)
-    fi
-done
-
 path=(
     $HOME/.local/bin
     $HOME/bin
@@ -58,6 +43,27 @@ manpath=(
     /usr/local/opt/coreutils/libexec/gnuman
     $manpath
 )
+
+# Homebrew
+eval $(brew shellenv)
+export HOMEBREW_NO_ANALYTICS=1
+
+# xenv
+envs=("rbenv" "pyenv" "nodenv")
+for xenv in $envs; do
+    path=(
+        $HOME/.${xenv}/shims
+        $HOME/.${xenv}/bin
+        $path
+    )
+
+    # macOS向きに `no_global_rcs` を設定してるので、init 実行済みかどうかにかかわらず実行する
+    if ( which $xenv &>/dev/null ); then
+      eval "$($xenv init -)"
+      export ${xenv:u}_ROOT=$($xenv root)
+    fi
+done
+
 # remove non-exist dirs
 # https://blog.n-z.jp/blog/2013-12-12-zsh-cleanup-path.html
 path=(${^path}(N-/^W))
@@ -91,10 +97,6 @@ export PAGER=less
 # http://zsh.sourceforge.net/Guide/zshguide04.html
 # 4.3.4: Words, regions and marks
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-
-# Homebrew
-eval $(brew shellenv)
-export HOMEBREW_NO_ANALYTICS=1
 
 # fzf
 export FZF_DEFAULT_OPTS="--height=15 --inline-info --reverse --tabstop=2"
