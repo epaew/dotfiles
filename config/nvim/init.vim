@@ -36,6 +36,7 @@ set incsearch
 set nohlsearch
 set nowrapscan
 set showmatch
+set ignorecase
 set smartcase
 set whichwrap=b,s,h,l,<,>,[,]
 
