@@ -45,8 +45,10 @@ manpath=(
 )
 
 # Homebrew
-eval $(brew shellenv)
-export HOMEBREW_NO_ANALYTICS=1
+if ( which brew &>/dev/null ); then
+    eval $(brew shellenv)
+    export HOMEBREW_NO_ANALYTICS=1
+fi
 
 # xenv
 envs=("rbenv" "pyenv" "nodenv")
