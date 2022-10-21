@@ -44,9 +44,6 @@ set whichwrap=b,s,h,l,<,>,[,]
 "------------------------------------------------------------
 " Style
 "------------------------------------------------------------
-silent if !dein#check_install(['landscape.vim'])
-    colorscheme landscape
-endif
 set cmdheight=2
 set cursorline
 set guicursor=

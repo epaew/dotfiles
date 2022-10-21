@@ -36,8 +36,8 @@ function FzfFindAll(...)
 endfunction
 '''
 
-[[plugins]]
 # color scheme
+[[plugins]]
 repo = 'itchyny/landscape.vim'
 
 [[plugins]]
