@@ -102,3 +102,6 @@ repo = 'tpope/vim-eunuch'
 [[plugins]]
 # ANSI color の表示
 repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
