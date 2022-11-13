@@ -5,6 +5,7 @@ path=(
     /usr/local/bin    # homebrew bin path: old
     $path
 )
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 export ZDOTDIR=$HOME/dotfiles/zsh
 
 if [[ -n $SSH_CONNECTION ]]; then
