@@ -1,8 +1,4 @@
 [[plugins]]
-repo  = 'cespare/vim-toml'
-on_ft = ['toml']
-
-[[plugins]]
 repo  = 'dense-analysis/ale'
 on_ft = [
     'javascript',
@@ -20,42 +16,14 @@ let g:ale_default_navigation = 'split'
 '''
 
 [[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = ['pug', 'vue']
-
-[[plugins]]
-repo    = 'hashivim/vim-terraform'
-on_ft   = ['terraform']
-
-[[plugins]]
-repo    = 'jparise/vim-graphql'
-on_ft   = ['graphql']
-
-[[plugins]]
 repo    = 'kannokanno/previm'
 on_ft   = ['markdown']
 depends = 'open-browser.vim'
-
-[[plugins]]
-repo  = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
 
 [[plugins]] # dynamic filetype switcher
 repo    = 'osyo-manga/vim-precious'
 on_ft   = ['eruby', 'help', 'html', 'markdown', 'slim', 'toml']
 depends = 'context_filetype.vim'
-
-[[plugins]]
-repo  = 'posva/vim-vue'
-on_ft = ['vue']
-
-[[plugins]]
-repo  = 'slim-template/vim-slim'
-on_ft = ['slim']
-
-[[plugins]]
-repo = 'tmux-plugins/vim-tmux'
-on_ft = ['tmux']
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
