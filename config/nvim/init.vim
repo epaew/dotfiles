@@ -8,7 +8,6 @@ if dein#load_state(expand('~/.cache/dein'))
 
     call dein#load_toml('~/.config/nvim/dein/eager.toml', { 'lazy': 0 })
     call dein#load_toml('~/.config/nvim/dein/lazy.toml', { 'lazy': 1 })
-    call dein#load_toml('~/.config/nvim/dein/filetype.toml')
 
     call dein#end()
     call dein#save_state()

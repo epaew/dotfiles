@@ -4,25 +4,58 @@ on_cmd = 'FixWhitespace'
 on_event = 'InsertEnter'
 
 [[plugins]]
+# dependency of lightline-ale
+repo  = 'dense-analysis/ale'
+on_event = 'BufEnter'
+hook_source = '''
+let g:ale_sign_column_always = 1
+let g:ale_default_navigation = 'split'
+'''
+
+[[plugins]]
+# dependency of fzf.vim
+repo  = 'junegunn/fzf'
+build = './install --all'
+hook_add = '''
+let g:fzf_action = {
+            \   'enter': 'tab split',
+            \   'ctrl-x': 'split',
+            \   'ctrl-v': 'vsplit',
+            \ }
+'''
+
+[[plugins]]
+# color scheme
+# dependency of lightline.vim
+repo = 'itchyny/landscape.vim'
+
+[[plugins]]
+repo    = 'kannokanno/previm'
+on_ft   = ['markdown']
+depends = 'open-browser.vim'
+
+[[plugins]]
 repo = 'maximbaz/lightline-ale'
-depends = 'lightline.vim'
-on_source = 'ale'
+depends = ['ale', 'lightline.vim']
+on_source = ['ale']
 hook_source = '''
 let g:lightline.active = {
             \   'left': [
             \     ['mode', 'paste'],
             \     ['readonly', 'filename', 'modified'],
-            \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok']
+            \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok']
             \   ]
             \ }
 let g:lightline.component_expand = {
             \   'linter_checking': 'lightline#ale#checking',
+            \   'linter_infos': 'lightline#ale#infos',
             \   'linter_warnings': 'lightline#ale#warnings',
             \   'linter_errors': 'lightline#ale#errors',
             \   'linter_ok': 'lightline#ale#ok',
             \ }
 let g:lightline.component_type = {
             \   'linter_checking': 'left',
+            \   'linter_infos': 'info',
             \   'linter_warnings': 'warning',
             \   'linter_errors': 'error',
             \   'linter_ok': 'left',
@@ -30,6 +63,7 @@ let g:lightline.component_type = {
 '''
 
 [[plugins]]
+# dependency of deoplete.nvim, precious.vim
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
@@ -45,3 +79,7 @@ call deoplete#custom#option('sources', { '_': ['buffer', 'ale'] })
 [[plugins]]
 repo = 'tpope/vim-endwise'
 on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown']
