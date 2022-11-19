@@ -6,7 +6,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(expand('~/.cache/dein'))
     call dein#begin(expand('~/.cache/dein'))
 
-    call dein#load_toml('~/.config/nvim/dein/base.toml', { 'lazy': 0 })
+    call dein#load_toml('~/.config/nvim/dein/eager.toml', { 'lazy': 0 })
     call dein#load_toml('~/.config/nvim/dein/lazy.toml', { 'lazy': 1 })
     call dein#load_toml('~/.config/nvim/dein/filetype.toml')
 
