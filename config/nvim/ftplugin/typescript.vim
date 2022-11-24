@@ -1,6 +1,6 @@
 function! SetTypeScriptLinter(dirname)
-    let node_modules = expand(finddir("node_modules", a:dirname . ";"))
-    if node_modules ==# ''
+    let l:package_json = findfile("package.json", a:dirname . ";")
+    if l:package_json ==# ''
         let b:ale_linters = ['deno']
     else
         let b:ale_linters = ['eslint', 'prettier', 'tsserver']
