@@ -66,15 +66,15 @@ let g:lightline.component_type = {
 # dependency of deoplete.nvim, precious.vim
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
-depends = 'context_filetype.vim'
-hook_source = '''
-set completeopt+=noinsert
-call deoplete#enable()
-call deoplete#custom#option('sources', { '_': ['buffer', 'ale'] })
-'''
+## [[plugins]]
+## repo = 'Shougo/deoplete.nvim'
+## on_event = 'InsertEnter'
+## depends = 'context_filetype.vim'
+## hook_source = '''
+## set completeopt+=noinsert
+## call deoplete#enable()
+## call deoplete#custom#option('sources', { '_': ['buffer', 'ale'] })
+## '''
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
