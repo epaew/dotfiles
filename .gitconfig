@@ -2,16 +2,23 @@
 	autoCRLF = input
 [diff]
 	algorithm = histogram
+	renames = true
 	tool = vimdiff
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [init]
 	templateDir = ~/dotfiles/git_template
 [merge]
 	tool = vimdiff
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [mergetool]
 	prompt = false
 	keepBackup = false
 [pull]
 	rebase = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
