@@ -1,5 +1,4 @@
 bundler
-pry
 rake
 rubocop
 solargraph
